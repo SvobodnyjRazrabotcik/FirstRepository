@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Сайт Свободного Разработчика</title>
+    <script src="https://kit.fontawesome.com/61c73bef4b.js" crossorigin="anonymous"></script>
+    <script src = "https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+
+$(function (){
+
+$('.call').on('click', function(){
+    $('.popup').css('display', 'flex');
+});
+
+$('.getCall').on('click', function(){
+    
+    let name = $('#name').val();
+    let email = $('#email').val();
+    if (name.length == 0){
+    alert('Укажите имя!');}
+    if (email.length == 0){
+    alert('Укажите E-Mail!');}
+
+    $.post('/api.php', {'name': name, 'email': email}, function(){          
+
+        if (response == 1) {            
+            $('#name').val('');
+            $('#email').val('');
+            $('.popup').css('display', 'none');          
+        }
+        else {
+            $('.popup').css('display', 'none');
+            alert('Ошибка')}
+
+        });
+    
+});
+
+$('.popup').on('click', function(event){
+    if (event.target === this){
+        $('.popup').css('display', 'none');}
+    
+});
+
+});
+
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body> 
+    
+    <div class = "popup">
+        <div class = "pop">
+            <h3>Форма</h3>
+            <label>Имя: <input id = "name" type="text"></label>
+            <label>E-Mail <input id = "email" type="email"></label>
+            <button class = "getCall">Кнопка</button>
+        </div>
+    </div>   
+
+    <header class="header">      
+        
+        <div class = "navigation">
+            <input type="checkbox" id = "check">
+            <label for = "check">Меню</label>  
+            <nav class = "menu">                          
+                <a href="#">Меню</a>
+                <a href="#">Меню</a>
+                <a href="#">Меню</a>
+                <a href="#">Меню</a>
+                <label for = "check" id = "close">Свернуть</label>                             
+            </nav>
+        </div>        
+
+        <div class = "contacs">          
+            +7 888 888-88-88
+            <button class = "call">Кнопка</button>
+        </div> 
+
+    </header>  
+
+        <h1 class = "h1">Свободный Разработчик</h1>
+
+        <h2 class = "h2">Сайт Свободного Разработчика</h2>
+
+        <div class = "main_content">
+
+            <p>Теория - это когда всё известно, но ничего не работет <br>
+                Практика - всё работает. но никто не знает почему <br>
+                Когда объединяешь практику и теорию получаешь парадокс <br>
+                Либо всё работает и ты знаешь почему<br>
+                Либо ничего не работает, и ты не знаешь почему<br></p>
+            <p>Если ваш сайт "упал", но вы быстро восстановили его работоспособность, то не переживайте<br>
+                Быстро поднятое упавшим не считается</p>
+            <p>Если много дёргать за Python, то он отвалится</p>
+            <p>Без внятного ТЗ результат будет ХЗ</p>
+            <p>Рекурсия как женщина - всегда нужно знать насколько углубиться<br>
+                и когда остановиться</p>
+            <p>Правило близости - это не фильм о интимных отношениях между мужчиной и женщиной,<br>
+            а прописная истина HTML-вёрстки</p>
+            <p>Этот сайт находится в процессе разработки</p>
+
+        </div>
+    
+    <div class="another_content">
+        Поищите где то <a href="https://www.yandex.ru" target = "blank_"> здесь </a>
+    </div>
+<section class ="section">
+    
+    <div class="copyright">
+        <p>Сайт разработан Свободным Разработчиком 2021 г.</p>
+        <p>Редакция от 15.02.2021</p>
+        <div class="social">
+            <label><i class="fab fa-vk"></i></label>           
+        
+        <i class="fab fa-telegram-plane"></i>
+        <i class="fas fa-envelope-open"></i>
+        </div>
+    </div>
+
+</section> 
+ 
+</body>
+
+</html>
